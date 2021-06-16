@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import './index.css'
 const Header = () => {
     return (
         <>
-            <ul class="nav nav-tabs bg-primary">
+            <ul class="nav nav-tabs bg-primary menu">
                 <li class="nav-item">
                     <Link to='/'>
                         <a class="nav-link">My Team</a>
