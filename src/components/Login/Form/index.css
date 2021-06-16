@@ -1,0 +1,17 @@
+.form {
+    width: 600px;
+    margin: 10% auto;
+    padding: 2%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.alkemy-form-label {
+    font-size: 2em;
+}
+
+.alkemy-form-control {
+    margin-bottom: 10%;
+    text-align: center;
+}
