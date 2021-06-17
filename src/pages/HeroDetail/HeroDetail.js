@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import './index.css'
 import {useHistory} from 'react-router-dom'
 import HeroesContext from '../../context/HeroesContext';
+import Title from '../../components/Title/Title';
 
 const HeroDetail = () => {
 
@@ -19,6 +20,7 @@ const HeroDetail = () => {
     }
     return (
         <div className='container-card'>
+            <Title title='Hero specifications' />
             <div className="alkemy-card" style={{width: '18rem'}}>
 
                 <img className="card-img-top" src={url} alt="Imagen de card"/>

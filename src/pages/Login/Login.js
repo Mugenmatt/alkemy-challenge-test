@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { Redirect } from 'react-router-dom';
 import HeroesContext from '../../context/HeroesContext';
-import Form from '../../components/Login/Form/Form'
+import FormLogin from '../../components/Login/Form/FormLogin'
 
 const Login = () => {
 
@@ -13,7 +13,7 @@ const Login = () => {
     }
     return (
         <>
-            <Form />
+            <FormLogin />
         </>
     );
 };

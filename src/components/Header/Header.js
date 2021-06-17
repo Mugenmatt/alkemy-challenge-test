@@ -15,7 +15,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                     <Link to='/search'>
-                        <p className="nav-link">Search a Hero</p>
+                        <p className="nav-link">Search your Heroes</p>
                     </Link>
                 </li>
                 <li className="nav-item">

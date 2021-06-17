@@ -5,6 +5,7 @@
     border: 1px solid #000;
     border-radius: 10px;
     text-align: center;
+    /* background-image: url('https://resizer.glanacion.com/resizer/Hh3qhXZlvoN_ca4Rnw35zoUqvZQ=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PWDMBQSTI5FRPNIIHXHLRARJAQ.jpg'); */
 }
 
 .alkemy-form-label {
@@ -12,6 +13,16 @@
 }
 
 .alkemy-form-control {
-    margin-bottom: 10%;
     text-align: center;
+}
+
+.labelInput {
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.errorInput {
+    color: red;
+    margin: 0;
+    padding: 0;
 }

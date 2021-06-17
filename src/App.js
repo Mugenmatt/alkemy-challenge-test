@@ -25,58 +25,59 @@ function App() {
   const [isFetching, setIsFetching] = useState(false);
   const [heroesData, setHeroesData] = useState(heroesState)
   const [heroName, setHeroName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [errorFilled, setErrorFilled] = useState(false)
-  const [errorEmpty, setErrorEmpty] = useState(false)
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value)
-  }
+  
+  // const handleEmail = (e) => {
+  //   setEmail(e.target.value)
+  // }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsFetching(true);
+
+  // const handlePassword = (e) => {
+  //   setPassword(e.target.value)
+  // }
+
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   setIsFetching(true);
     
-    if(email === '' || password === '') {
-      console.log('Input cannot be empty');
-      setTimeout(() => {
-        setErrorEmpty(false);
-      }, 2000);
-      return setErrorEmpty(true);
-    }
+  //   if(email === '' || password === '') {
+  //     console.log('Input cannot be empty');
+  //     setTimeout(() => {
+  //       setErrorEmpty(false);
+  //     }, 2000);
+  //     return setErrorEmpty(true);
+  //   }
 
-    if(email !== 'challenge@alkemy.org' || password !== 'react') {
-      console.log('invalid email or password');
-      setTimeout(() => {
-        setErrorFilled(false);
-      }, 2000);
-      return setErrorFilled(true);
-    }
+  //   if(email !== 'challenge@alkemy.org' || password !== 'react') {
+  //     console.log('invalid email or password');
+  //     setTimeout(() => {
+  //       setErrorFilled(false);
+  //     }, 2000);
+  //     return setErrorFilled(true);
+  //   }
 
 
-    axios.post(`http://challenge-react.alkemy.org/`,{
-      email: 'challenge@alkemy.org',
-      password: 'react'
-    })
-    .then(res => {
-      window.localStorage.setItem('token', JSON.stringify(res.data.token))
-      setUserToken(true)
-      setIsFetching(false);
-      Swal.fire(
-        'Logged in!',
-        'You just logged in!',
-        'success'
-      )
-    }).catch(error => {
-      console.log('ERROR:' + error)
-      setIsFetching(false);
-    })
-  }
+    // axios.post(`http://challenge-react.alkemy.org/`,{
+    //   email: 'challenge@alkemy.org',
+    //   password: 'react'
+    // })
+    // .then(res => {
+    //   window.localStorage.setItem('token', JSON.stringify(res.data.token))
+    //   setUserToken(true)
+    //   setIsFetching(false);
+    //   Swal.fire(
+    //     'Logged in!',
+    //     'You just logged in!',
+    //     'success'
+    //   )
+    // }).catch(error => {
+    //   console.log('ERROR:' + error)
+    //   setIsFetching(false);
+    // })
+  // }
+
 
   const handleLogout = e => {
     setUserToken(false);
@@ -88,10 +89,12 @@ function App() {
     )
   }
 
+
   const handleName = (e) => {
     const name = e.target.value;
     setHeroName(name);
   }
+
 
   const handleSearchHero = () => {
     setIsFetching(true);
@@ -103,7 +106,7 @@ function App() {
         if(res.data.response === 'error') {
           Swal.fire(
             'Hero not found!',
-            'Try with few words',
+            'Try with few letters',
             'error'
           )
           return;
@@ -118,6 +121,7 @@ function App() {
     })
   }
 
+
   const handleHero = (heroID) => {
     const selectedHero = heroesData.allHeroes.find(hero => {
       return hero.id === heroID;
@@ -126,11 +130,13 @@ function App() {
     setHeroesData({...heroesData, viewHero: selectedHero})
   }
 
+
   const handleAdd = (heroID) => {
 
     const newHero = heroesData.allHeroes.find(hero => {
       return hero.id === heroID;
     })
+
 
     const isRepeated = () => {
       const res = heroesData.myHeroes.map(hero => {
@@ -207,9 +213,6 @@ function App() {
         return;
       }
     })
-
-    
-
   }
 
   return (
@@ -217,13 +220,15 @@ function App() {
       {
         ...heroesData,
         userToken,
+        setUserToken,
+        setIsFetching,
         isFetching,
-        handleEmail,
-        handlePassword,
-        handleSubmit,
+        // handleEmail,
+        // handlePassword,
+        // handleSubmit,
         handleLogout,
-        errorEmpty,
-        errorFilled,
+        // errorEmpty,
+        // errorFilled,
         handleHero,
         handleAdd,
         handleDelete,

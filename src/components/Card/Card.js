@@ -14,7 +14,7 @@ const Card = ({id, name, img, powerstats, fromSearch}) => {
     const context = useContext(HeroesContext);
     const {handleHero, handleAdd, handleDelete} = context;
     return (
-        <div className="alkemy-card" style={{width: '18rem', textAlign:'center'}}>
+        <div className="alkemy-card" style={{width: '18rem', maxWidth:'18rem', minWidth:'18rem', textAlign:'center'}}>
             <img className="card-img-top" src={img} alt="Imagen de card" />
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
