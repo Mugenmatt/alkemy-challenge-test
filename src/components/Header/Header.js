@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 const Header = () => {
     const context = useContext(HeroesContext);
-    const {userToken, handleLogout} = context;
+    const {handleLogout} = context;
     return (
         <>
             <ul className="nav nav-tabs bg-primary menu">
@@ -19,14 +19,13 @@ const Header = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    
-                        { 
-                            userToken ? <p className="nav-link" onClick={handleLogout}>Log Out</p> 
-                            : 
-                            <Link to='/login'>
-                                <p className="nav-link"> Log In </p>
-                            </Link>
-                        }
+                    { 
+                        window.localStorage.getItem('token') !== null ? <p className="nav-link" onClick={handleLogout}>Log Out</p> 
+                        : 
+                        <Link to='/login'>
+                            <p className="nav-link"> Log In </p>
+                        </Link>
+                    }
                 </li>
             </ul>  
             

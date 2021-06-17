@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import HeroesContext from '../../../context/HeroesContext';
-import { Formik, Field, Form, useFormik } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import './index.css'

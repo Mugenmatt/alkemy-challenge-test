@@ -1,9 +1,10 @@
 .alkemy-spinner{
-    padding: 3% !important;
-    z-index: 100 !important;
-    height: 200px;
-    background: red;
+    /* CON EL FONDO ROJO SE PUEDE VER DONDE ESTA EL SPINNER */
+    /* background: red ; */
+    padding: 3%;
     z-index: 100;
-    width: 200px;
-    margin: auto;
+    height: 200px ;
+    z-index: 100 ;
+    width: 200px ;
+    margin: auto ;
 }
