@@ -32,6 +32,7 @@
 }
 
 .searchInput {
+    width: 100%;
     display: inline-block;
 }
 
@@ -43,4 +44,62 @@
 .btn-search {
     margin: auto;
     margin-left: 3%;
+}
+
+@media screen and (max-width:1200px) {
+    .searchForm {
+        width: 50%;
+    }
+    .searchLabel {
+        width: 35%;
+    }
+}
+
+/* IPAD PRO */
+@media screen and (max-width:1024px) and (max-height: 1366px) {
+    .formContainer {
+        width: 70%;
+    }
+    .searchForm {
+        width: 80%;
+    }
+    .searchLabel {
+        width: 30%;
+    }
+}
+
+/* NEXUS 10 */
+@media screen and (max-width:800px) and (max-height: 1280px) {
+    .formContainer {
+        width: 70%;
+    }
+    .searchForm {
+        width: 80%;
+    }
+    .searchLabel {
+        width: 30%;
+    }
+}
+
+/* Blackberry Playbook  */
+@media screen and (max-width: 600px) and (max-height: 1024px) {
+    .formContainer {
+        width: 100%;
+    }
+    .searchForm {
+        width: 80%;
+    }
+    .searchLabel {
+        width: 30%;
+        font-size: 1em;
+    }
+    .formContainer {
+        width: 90%;
+        margin-bottom: 6%;
+    }
+}
+
+/* Iphone X */
+@media screen and (max-width: 375px) and (max-height: 812px) {
+
 }

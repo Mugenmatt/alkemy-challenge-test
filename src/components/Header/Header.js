@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import HeroesContext from '../../context/HeroesContext';
 import {Link} from 'react-router-dom'
 import './index.css'
+
 const Header = () => {
     const context = useContext(HeroesContext);
     const {handleLogout} = context;
