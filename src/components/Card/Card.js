@@ -3,10 +3,16 @@ import HeroesContext from '../../context/HeroesContext';
 import { Link } from 'react-router-dom';
 
 const Card = ({id, name, img, powerstats, fromSearch}) => {
-    const {combat, durability, intelligence, power, speed, strength} = powerstats
+    const {
+        // combat,
+        durability,
+        // intelligence,
+        power,
+        // speed,
+        strength
+    } = powerstats
     const context = useContext(HeroesContext);
     const {handleHero, handleAdd, handleDelete} = context;
-    // console.log(context);
     return (
         <div className="alkemy-card" style={{width: '18rem', textAlign:'center'}}>
             <img className="card-img-top" src={img} alt="Imagen de card" />

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import HeroesContext from '../../context/HeroesContext';
 import {Link} from 'react-router-dom'
 import './index.css'
 const Header = () => {
+    const context = useContext(HeroesContext);
+    const {userToken, handleLogout} = context;
     return (
         <>
             <ul className="nav nav-tabs bg-primary menu">
@@ -16,9 +19,14 @@ const Header = () => {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to='/login'>
-                        <p className="nav-link">Log In</p>
-                    </Link>
+                    
+                        { 
+                            userToken ? <p className="nav-link" onClick={handleLogout}>Log Out</p> 
+                            : 
+                            <Link to='/login'>
+                                <p className="nav-link"> Log In </p>
+                            </Link>
+                        }
                 </li>
             </ul>  
             

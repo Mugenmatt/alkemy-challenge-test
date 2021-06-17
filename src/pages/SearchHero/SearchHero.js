@@ -1,13 +1,22 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
+import {Redirect} from 'react-router-dom'
 import HeroesContext from '../../context/HeroesContext';
 import CardContainer from '../../components/SearchHero/CardContainer/CardContainer'
 import './index.css'
 
-const SearchHero = () => {
 
+const SearchHero = () => {
+    const token = window.localStorage.getItem('token');
+    
     const context = useContext(HeroesContext);
 
     const {handleSearchHero, handleName} = context;
+
+    if(!token){
+        return <Redirect to='/login' />;
+    }
+
+
 
     return (
         <div className='searchContainer'>

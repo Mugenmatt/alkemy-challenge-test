@@ -20,8 +20,43 @@ function App() {
   const urlToken = `https://superheroapi.com/api/${token}`;
   const proxy = 'https://rocky-basin-57618.herokuapp.com';
 
+  const [userToken, setUserToken] = useState(false)
   const [heroesData, setHeroesData] = useState(heroesState)
   const [heroName, setHeroName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if(email !== 'challenge@alkemy.org' || password !== 'react') {
+      console.log('invalid email or password');
+      return
+    }
+
+    axios.post(`http://challenge-react.alkemy.org/`,{
+      email: 'challenge@alkemy.org',
+      password: 'react'
+    })
+    .then(res => {
+      console.log(res);
+      window.localStorage.setItem('token', JSON.stringify(res.data.token))
+      setUserToken(true)
+    }).catch(error => console.log('ERROR:' + error))
+  }
+
+  const handleLogout = e => {
+    setUserToken(false);
+    window.localStorage.clear('token');
+  }
 
   const handleName = (e) => {
     const name = e.target.value;
@@ -89,7 +124,7 @@ function App() {
   }
 
   return (
-    <HeroesContext.Provider value={{...heroesData, handleHero, handleAdd, handleDelete, handleSearchHero, handleName}}>
+    <HeroesContext.Provider value={{...heroesData, userToken, handleEmail, handlePassword, handleSubmit, handleLogout, handleHero, handleAdd, handleDelete, handleSearchHero, handleName}}>
 
       <div className="App">
 

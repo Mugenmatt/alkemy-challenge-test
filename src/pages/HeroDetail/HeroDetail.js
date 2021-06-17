@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import './index.css'
+import {useHistory} from 'react-router-dom'
 import HeroesContext from '../../context/HeroesContext';
 
 const HeroDetail = () => {
@@ -10,6 +11,12 @@ const HeroDetail = () => {
     const {power, durability, strength, speed, intelligence, combat} = powerstats
     const {url} = image;
 
+    const token = window.localStorage.getItem('token');
+    let history = useHistory();
+
+    if(!token){
+        history.push("/login");
+    }
     return (
         <div className='container-card'>
             <div className="alkemy-card" style={{width: '18rem'}}>

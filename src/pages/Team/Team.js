@@ -1,10 +1,16 @@
 import React from 'react';
-import HeroesContext from '../../context/HeroesContext';
+import {Redirect} from 'react-router-dom'
 import Title from '../../components/Title/Title';
 import CardContainer from '../../components/Team/CardContainer/CardContainer'
 import './index.css'
 
 const Team = () => {
+
+    const token = window.localStorage.getItem('token');
+
+    if(!token){
+        return <Redirect to='/login' />;
+    }
     return (
         <div>
 
