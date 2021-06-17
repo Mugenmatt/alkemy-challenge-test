@@ -1,21 +1,30 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import HeroesContext from '../../context/HeroesContext';
 import { Link } from 'react-router-dom';
 
-const Card = ({name, powerstats}) => {
+const Card = ({id, name, img, powerstats, fromSearch}) => {
+    const {combat, durability, intelligence, power, speed, strength} = powerstats
+    const context = useContext(HeroesContext);
+    const {handleHero, handleAdd, handleDelete} = context;
+    // console.log(context);
     return (
-        <div class="alkemy-card" style={{width: '18rem', textAlign:'center'}}>
-            <img class="card-img-top" src="https://www.androfast.com/wp-content/uploads/2018/01/placeholder.png" alt="Imagen de card" />
-            <div class="card-body">
-                <h5 class="card-title">Nombre del heroe</h5>
-                <p class="card-text">Powerstats</p>
-                <p class="card-text">Powerstats</p>
-                <p class="card-text">Powerstats</p>
+        <div className="alkemy-card" style={{width: '18rem', textAlign:'center'}}>
+            <img className="card-img-top" src={img} alt="Imagen de card" />
+            <div className="card-body">
+                <h5 className="card-title">{name}</h5>
+                <p className="card-text">Power: {power === 'null' ? 'No info' : power} </p>
+                <p className="card-text">Strength: {strength === 'null' ? 'No info' : strength} </p>
+                <p className="card-text">Durability: {durability === 'null' ? 'No info' : durability} </p>
 
-                <Link to='/hero/:id'>
-                    <a class="alkemy-btn-primary btn-primary"> Detalle </a>
-                </Link>
+            {
+                fromSearch ? <button className="alkemy-btn-primary" onClick={() => handleAdd(id)}> Add </button>
+                : <> <Link to={`/hero/${id}`}>
+                            <button className="alkemy-btn-primary btn-primary" onClick={() => handleHero(id)}> Detail </button>
+                        </Link>
+                    <button className="alkemy-btn-danger"  onClick={() => handleDelete(id)}> Delete </button>
+                </>
+            }
 
-                <a class="alkemy-btn-danger"> Eliminar </a>
 
             </div>
         </div>

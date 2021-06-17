@@ -16,7 +16,7 @@ const Form = () => {
                     <input type="password" className="alkemy-form-control" id="password" placeholder="Type your password" />
                 </div>
 
-                <button type="button" className="alkemy-btn-primary">Login</button>
+                <button type="button" className="alkemy-btn-primary">Log In</button>
                 
             </form>
 
