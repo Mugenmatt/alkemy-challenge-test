@@ -1,22 +1,28 @@
-import React from 'react';
-import CardContainer from '../../components/CardContainer/CardContainer';
+import React, {useState, useContext} from 'react';
+import HeroesContext from '../../context/HeroesContext';
+import CardContainer from '../../components/SearchHero/CardContainer/CardContainer'
 import './index.css'
 
 const SearchHero = () => {
-    return (
-        <div>
 
+    const context = useContext(HeroesContext);
+
+    const {handleSearchHero, handleName} = context;
+
+    return (
         <div className='searchContainer'>
 
-            <div className='searchForm'>
-                    <label for="hero" className="alkemy-form-label searchLabel">Search your Hero!</label>
-                    <input type="text" className="alkemy-form-control hero searchInput" id="hero" placeholder="Type your hero's name" />
-                <button type="button" class="alkemy-btn-primary btn-search">Search</button>
+            <div className='formContainer'>
+
+                <div className='searchForm'>
+                    <label htmlFor="hero" className="alkemy-form-label searchLabel">Search your Hero!</label>
+                    <input type="text" className="alkemy-form-control hero searchInput" id="hero" placeholder="Type your hero's name" onChange={handleName} />
+                    <button type="button" className="alkemy-btn-primary btn-search" onClick={handleSearchHero}>Search</button>
+                </div>
+
             </div>
 
-        </div>
-
-            <CardContainer />
+            <CardContainer fromSearch={'fromSearch'} />
             
         </div>
     );

@@ -1,13 +1,18 @@
 .searchContainer {
+    /* background-color: red; */
+    /* padding-bottom: 10%; */
+}
+
+.formContainer {
     margin: auto;
     text-align: center;
 }
 
 .searchForm {
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
     margin: auto;
     margin-top: 3%;
     margin-bottom: 2%;
