@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom'
 import HeroesContext from '../../context/HeroesContext';
 import CardContainer from '../../components/SearchHero/CardContainer/CardContainer'
 import './index.css'
+import Loader from '../../components/Loader/Loader'
 
 
 const SearchHero = () => {
@@ -10,13 +11,11 @@ const SearchHero = () => {
     
     const context = useContext(HeroesContext);
 
-    const {handleSearchHero, handleName} = context;
+    const {handleSearchHero, handleName, isFetching} = context;
 
     if(!token){
         return <Redirect to='/login' />;
     }
-
-
 
     return (
         <div className='searchContainer'>
@@ -30,6 +29,10 @@ const SearchHero = () => {
                 </div>
 
             </div>
+            
+            {
+                isFetching && <Loader />
+            }
 
             <CardContainer fromSearch={'fromSearch'} />
             

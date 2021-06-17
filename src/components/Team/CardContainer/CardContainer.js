@@ -6,19 +6,27 @@ import Card from '../../Card/Card';
 const CardContainer = () => {
     const heroes = useContext(HeroesContext);
     return (
-        <div className='containerSearch'>
+        <>
+
             {
-                heroes.myHeroes.map(hero => {
-                    return <Card 
-                        key={hero.id}
-                        id={hero.id}
-                        name={hero.name}
-                        img={hero.image.url}
-                        powerstats={hero.powerstats}
-                    />
-                })
+                heroes.myHeroes.length === 0 && <h1 className='noHeroesYet'>You have no heroes selected yet !</h1>
             }
-        </div>
+
+            <div className='containerTeam'>
+
+                {
+                    heroes.myHeroes.map(hero => {
+                        return <Card 
+                            key={hero.id}
+                            id={hero.id}
+                            name={hero.name}
+                            img={hero.image.url}
+                            powerstats={hero.powerstats}
+                        />
+                    })
+                }
+            </div>
+        </>
     );
 };
 

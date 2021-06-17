@@ -1,0 +1,5 @@
+.extra-spinner {
+    width: 200% !important;
+    padding: 5% !important;
+    z-index: 100;
+}
