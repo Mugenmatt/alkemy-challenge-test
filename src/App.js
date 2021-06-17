@@ -26,59 +26,6 @@ function App() {
   const [heroesData, setHeroesData] = useState(heroesState)
   const [heroName, setHeroName] = useState('')
 
-
-  
-  // const handleEmail = (e) => {
-  //   setEmail(e.target.value)
-  // }
-
-
-  // const handlePassword = (e) => {
-  //   setPassword(e.target.value)
-  // }
-
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   setIsFetching(true);
-    
-  //   if(email === '' || password === '') {
-  //     console.log('Input cannot be empty');
-  //     setTimeout(() => {
-  //       setErrorEmpty(false);
-  //     }, 2000);
-  //     return setErrorEmpty(true);
-  //   }
-
-  //   if(email !== 'challenge@alkemy.org' || password !== 'react') {
-  //     console.log('invalid email or password');
-  //     setTimeout(() => {
-  //       setErrorFilled(false);
-  //     }, 2000);
-  //     return setErrorFilled(true);
-  //   }
-
-
-    // axios.post(`http://challenge-react.alkemy.org/`,{
-    //   email: 'challenge@alkemy.org',
-    //   password: 'react'
-    // })
-    // .then(res => {
-    //   window.localStorage.setItem('token', JSON.stringify(res.data.token))
-    //   setUserToken(true)
-    //   setIsFetching(false);
-    //   Swal.fire(
-    //     'Logged in!',
-    //     'You just logged in!',
-    //     'success'
-    //   )
-    // }).catch(error => {
-    //   console.log('ERROR:' + error)
-    //   setIsFetching(false);
-    // })
-  // }
-
-
   const handleLogout = e => {
     setUserToken(false);
     window.localStorage.clear('token');
@@ -89,12 +36,10 @@ function App() {
     )
   }
 
-
   const handleName = (e) => {
     const name = e.target.value;
     setHeroName(name);
   }
-
 
   const handleSearchHero = () => {
     setIsFetching(true);
@@ -121,15 +66,13 @@ function App() {
     })
   }
 
-
   const handleHero = (heroID) => {
-    const selectedHero = heroesData.allHeroes.find(hero => {
+    const selectedHero = heroesData.myHeroes.find(hero => {
       return hero.id === heroID;
     })
 
     setHeroesData({...heroesData, viewHero: selectedHero})
   }
-
 
   const handleAdd = (heroID) => {
 
@@ -137,6 +80,9 @@ function App() {
       return hero.id === heroID;
     })
 
+    const filterAllHeroes = heroesData.allHeroes.filter(hero => {
+      return hero.id !== newHero.id;
+    })
 
     const isRepeated = () => {
       const res = heroesData.myHeroes.map(hero => {
@@ -188,7 +134,7 @@ function App() {
         icon: 'success',
         title: 'Added successfully!'
       })
-      return setHeroesData({...heroesData, myHeroes: [...heroesData.myHeroes, newHero]})
+      return setHeroesData({...heroesData, allHeroes:filterAllHeroes, myHeroes: [...heroesData.myHeroes, newHero]})
     }
 
   }
@@ -223,12 +169,7 @@ function App() {
         setUserToken,
         setIsFetching,
         isFetching,
-        // handleEmail,
-        // handlePassword,
-        // handleSubmit,
         handleLogout,
-        // errorEmpty,
-        // errorFilled,
         handleHero,
         handleAdd,
         handleDelete,

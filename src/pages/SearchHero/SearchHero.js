@@ -12,7 +12,7 @@ const SearchHero = () => {
     const context = useContext(HeroesContext);
 
     const {handleSearchHero, handleName, isFetching} = context;
-
+    console.log(isFetching);
     if(!token){
         return <Redirect to='/login' />;
     }
@@ -31,10 +31,10 @@ const SearchHero = () => {
             </div>
             
             {
-                isFetching && <Loader />
+                isFetching ? <Loader /> : <CardContainer fromSearch={'fromSearch'} />
             }
 
-            <CardContainer fromSearch={'fromSearch'} />
+            
             
         </div>
     );

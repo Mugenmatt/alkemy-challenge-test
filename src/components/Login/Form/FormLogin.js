@@ -32,26 +32,25 @@ const FormLogin = () => {
 
                 onSubmit={(values, {setSubmitting, resetForm}) => {
 
-                    axios.post(`http://challenge-react.alkemy.org/`,{
-                    email: 'challenge@alkemy.org',
-                    password: 'react'
+                    axios.post(`http://challenge-react.alkemy.org/`, {
+                        email: 'challenge@alkemy.org',
+                        password: 'react'
                     })
                     .then(res => {
-                    window.localStorage.setItem('token', JSON.stringify(res.data.token))
-                    setUserToken(true)
-                    setIsFetching(false);
-                    Swal.fire(
-                        'Logged in!',
-                        'You just logged in!',
-                        'success'
-                    )
+                        window.localStorage.setItem('token', JSON.stringify(res.data.token))
+                        setUserToken(true)
+                        setIsFetching(false);
+                        Swal.fire(
+                            'Logged in!',
+                            'You just logged in!',
+                            'success'
+                        )
                     }).catch(error => {
-                    console.log('ERROR:' + error)
-                    setIsFetching(false);
-                    })
-
-                    resetForm();
-                    setSubmitting(false)
+                        console.log('ERROR:' + error)
+                        setIsFetching(false);
+                        })
+                        resetForm();
+                        setSubmitting(false)
                 }}
             >
             {({ errors, touched }) => (

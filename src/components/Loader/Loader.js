@@ -1,8 +1,9 @@
 import React from 'react';
+import './index.css'
 
 const Loader = () => {
     return (
-        <div className="alkemy-spinner extra-spinner"></div>
+        <div className="alkemy-spinner"></div>
     );
 };
 

@@ -1,15 +1,15 @@
-.searchContainer {
-    /* background-color: red; */
-    /* padding-bottom: 10%; */
-}
+.searchContainer {}
 
 .formContainer {
+    width: 80%;
     margin: auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .searchForm {
-    width: 25%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +23,7 @@
     display: inline-block;
     font-size: 1.2em;
     margin-right: 2%;
+    width: 100%;
 }
 
 .bmd-form-group {

@@ -7,8 +7,8 @@ import Title from '../../components/Title/Title';
 const HeroDetail = () => {
 
     const context = useContext(HeroesContext)
-    const {name, image, powerstats} = context.viewHero;
     console.log(context);
+    const {name, image, powerstats} = context.viewHero;
     const {power, durability, strength, speed, intelligence, combat} = powerstats
     const {url} = image;
 
